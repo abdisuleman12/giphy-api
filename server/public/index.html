@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GIPHY</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+    <script src="client.js"></script>
+</head>
+
+<body ng-app="myApp" ng-controller="GiphyController as vm">
+    <h1>Random Giphy</h1>
+    <button ng-click="vm.getRandomGiphy()"> Random Giphy! </button>
+    <img ng-src="{{vm.random.list.data.image_original_url}} ">
+
+    <input type="text" ng-model="vm.search" placeholder="search" />
+    <button ng-click="vm.searchGiphy(vm.search)">Search</button>
+
+    <ul ng-repeat="giphys in vm.search.data">
+        <img ng-src="{{giphys.images.fixed_height_small.url}}">
+    </ul>
+    
+
+
+</body>
+
+</html>
